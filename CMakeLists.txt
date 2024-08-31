@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.28)
 
 project(ImageManipulatorCodingChallenge VERSION 0.1 LANGUAGES CXX)
 
@@ -23,8 +23,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ImageManipulatorCodingChallenge
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        ImageManipulationTools/CMakeLists.txt
-        ImageManipulationTools/imageprocessing.h ImageManipulationTools/imageprocessing.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ImageManipulatorCodingChallenge APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
