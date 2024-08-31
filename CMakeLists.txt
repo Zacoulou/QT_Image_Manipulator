@@ -23,6 +23,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ImageManipulatorCodingChallenge
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ImageManipulationTools/CMakeLists.txt
+        ImageManipulationTools/imageprocessing.h ImageManipulationTools/imageprocessing.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ImageManipulatorCodingChallenge APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -42,7 +44,11 @@ else()
     endif()
 endif()
 
-target_link_libraries(ImageManipulatorCodingChallenge PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    image_processing)
+
+add_subdirectory(ImageManipulationTools)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
