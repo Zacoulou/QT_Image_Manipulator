@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->menuTransform->setEnabled(false);
+    ui->menuImage->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +19,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionLoad_Image_triggered()
 {
     QString searchHeader = "Load Image";
-    QString startSearchDir = "/home";
+    QString startSearchDir = "/";
     QString searchFilter = "Images (*.png *.jpg)";
     QString filePath = QFileDialog::getOpenFileName(this, searchHeader, startSearchDir, searchFilter);
 
