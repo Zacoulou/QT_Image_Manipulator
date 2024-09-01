@@ -29,6 +29,12 @@ namespace ImageProcessing
         return average;
     }
 
+    QImage performProprietaryImageManipulation(QImage img){
+        img = convertToGrayscale8(img);
+        img = flipVertical(img);
+        return img;
+    }
+
 
     PYBIND11_MODULE(image_processing_py, m){
         m.def("convertToGrayscale8", &convertToGrayscale8);

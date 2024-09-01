@@ -34,6 +34,8 @@ private slots:
 
     void on_actionProperties_triggered();
 
+    void on_actionProprietaryManipulation_triggered();
+
 private:
     Ui::MainWindow *ui;
     QImage m_img;

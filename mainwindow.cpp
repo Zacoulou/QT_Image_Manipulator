@@ -58,3 +58,11 @@ void MainWindow::on_actionProperties_triggered()
                              "Avg Pixel Value: " + QString::number(avgPixelVal));
 }
 
+
+void MainWindow::on_actionProprietaryManipulation_triggered()
+{
+    m_img = ImageProcessing::performProprietaryImageManipulation(m_img);
+    ui->lbl_Image->setPixmap(QPixmap::fromImage(m_img));
+    on_actionProperties_triggered();
+}
+

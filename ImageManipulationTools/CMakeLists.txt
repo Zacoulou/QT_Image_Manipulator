@@ -34,7 +34,7 @@ target_link_libraries(image_processing_py PUBLIC
 
 
 #------------------C++ hooks----------------
-add_library(image_processing_cpp SHARED imageprocessing.cpp)
+add_library(image_processing_cpp imageprocessing.cpp)
 
 target_include_directories(image_processing_cpp
     INTERFACE

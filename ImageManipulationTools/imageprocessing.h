@@ -5,6 +5,7 @@
 
 namespace ImageProcessing
 {
+    QImage performProprietaryImageManipulation(QImage img);
     QImage convertToGrayscale8(QImage img);
     QImage flipVertical(QImage img);
     int calculateAveragePixelValue(QImage img);
