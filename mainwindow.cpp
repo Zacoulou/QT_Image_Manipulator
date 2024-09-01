@@ -30,6 +30,7 @@ void MainWindow::on_actionLoad_Image_triggered()
     QImage loadedImg(filePath);
     m_img = loadedImg;
     ui->lbl_Image->setScaledContents(true);
+    ui->lbl_Image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     ui->lbl_Image->setPixmap(QPixmap::fromImage(m_img));
 
     ui->menuTransform->setEnabled(true);

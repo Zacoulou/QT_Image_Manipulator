@@ -3,6 +3,8 @@
 import argparse
 import os
 from PIL import Image
+from prettytable import PrettyTable
+from prettytable import SINGLE_BORDER
 import image_processing_py
 
 def is_valid_path (path):
@@ -18,12 +20,19 @@ def is_image(file_path):
         return False
     
 def manipulateFilesFromPathToPath(source, dest):
+    table = PrettyTable()
+    table.set_style(SINGLE_BORDER)
+    table.field_names = ["File", "AvgPixelValue", "Status"]
     for filename in os.listdir(source):
         full_source_path = os.path.join(source, filename)
         if is_image(full_source_path):
             full_dest_path = os.path.join(dest, filename)
             avgPixelValue = image_processing_py.saveProprietaryImageManipulationToFile(full_source_path, full_dest_path)
-            print(filename + " | AvgPixelValue = " + str(avgPixelValue) + " |")
+            if (avgPixelValue == -1):
+                table.add_row([filename, avgPixelValue, "ERROR: FAILED"])
+            else:
+                table.add_row([filename, avgPixelValue, "SUCCESS"])
+    print(table)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Demo")

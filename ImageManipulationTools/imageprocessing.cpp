@@ -35,6 +35,8 @@ namespace ImageProcessing
         return img;
     }
 
+    //Takes in file and performs ProprietaryImageManipulation, then saves to desired destination
+    //Returns -1 if process fails to load or save file
     int saveProprietaryImageManipulationToFile(std::string filePath, std::string destDir){
         QImage loadedImg(QString::fromStdString(filePath));
 
