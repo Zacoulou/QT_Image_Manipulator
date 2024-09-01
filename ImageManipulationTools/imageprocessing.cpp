@@ -35,8 +35,22 @@ namespace ImageProcessing
         return img;
     }
 
+    int saveProprietaryImageManipulationToFile(std::string filePath, std::string destDir){
+        QImage loadedImg(QString::fromStdString(filePath));
+
+        if (loadedImg.isNull()){ return -1; }
+
+        loadedImg = performProprietaryImageManipulation(loadedImg);
+
+        bool savedSuccessfully = loadedImg.save(QString::fromStdString(destDir));
+
+        if (!savedSuccessfully){ return -1; }
+
+        return calculateAveragePixelValue(loadedImg);
+    }
+
 
     PYBIND11_MODULE(image_processing_py, m){
-        m.def("convertToGrayscale8", &convertToGrayscale8);
+        m.def("saveProprietaryImageManipulationToFile", &saveProprietaryImageManipulationToFile);
     }
 }

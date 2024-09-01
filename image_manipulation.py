@@ -19,10 +19,12 @@ def is_image(file_path):
     
 def manipulateFilesFromPathToPath(source, dest):
     for filename in os.listdir(source):
-        full_path = os.path.join(source, filename)
-        if is_image(full_path):
-            print(full_path)
-    
+        full_source_path = os.path.join(source, filename)
+        if is_image(full_source_path):
+            full_dest_path = os.path.join(dest, filename)
+            avgPixelValue = image_processing_py.saveProprietaryImageManipulationToFile(full_source_path, full_dest_path)
+            print(filename + " | AvgPixelValue = " + str(avgPixelValue) + " |")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Demo")
     parser.add_argument("source_directory", type=is_valid_path)
@@ -30,4 +32,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     manipulateFilesFromPathToPath(args.source_directory, args.destination_directory)
-    print (dir(image_processing_py))
