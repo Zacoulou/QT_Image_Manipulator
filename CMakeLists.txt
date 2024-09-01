@@ -44,7 +44,7 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    image_processing)
+    image_processing_cpp)
 
 add_subdirectory(ImageManipulationTools)
 

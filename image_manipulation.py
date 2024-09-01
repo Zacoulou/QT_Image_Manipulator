@@ -3,6 +3,7 @@
 import argparse
 import os
 from PIL import Image
+import image_processing_py
 
 def is_valid_path (path):
     if not os.path.isdir(path):
@@ -29,3 +30,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     manipulateFilesFromPathToPath(args.source_directory, args.destination_directory)
+    print (dir(image_processing_py))

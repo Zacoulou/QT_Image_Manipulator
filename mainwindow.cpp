@@ -36,13 +36,11 @@ void MainWindow::on_actionLoad_Image_triggered()
     ui->menuImage->setEnabled(true);
 }
 
-
 void MainWindow::on_actionGrayscale_triggered()
 {
     m_img = ImageProcessing::convertToGrayscale8(m_img);
     ui->lbl_Image->setPixmap(QPixmap::fromImage(m_img));
 }
-
 
 void MainWindow::on_actionFlip_Vertical_triggered()
 {

@@ -1,5 +1,7 @@
-//#include <pybind11/pybind11.h>
+#include <pybind11/pybind11.h>
 #include "imageprocessing.h"
+
+namespace py = pybind11;
 
 namespace ImageProcessing
 {
@@ -25,5 +27,10 @@ namespace ImageProcessing
         int average = pixelSum / numPixels;
 
         return average;
+    }
+
+
+    PYBIND11_MODULE(image_processing_py, m){
+        m.def("convertToGrayscale8", &convertToGrayscale8);
     }
 }
